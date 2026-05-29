@@ -3,7 +3,8 @@ import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { 
   LayoutDashboard, Users, RefreshCw, Wallet, 
-  Tag, Gift, Share2, Megaphone, LogOut, Menu, X, ArrowLeft 
+  Tag, Gift, Share2, Megaphone, LogOut, Menu, X, ArrowLeft,
+  ChevronDown, History
 } from 'lucide-react';
 
 export default function AdminLayout() {
@@ -11,6 +12,7 @@ export default function AdminLayout() {
   const location = useLocation();
   const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const menuItems = [
     { name: 'Dashboard', path: '/admin/dashboard', icon: LayoutDashboard },
@@ -170,14 +172,55 @@ export default function AdminLayout() {
             </Link>
           </div>
 
-          <div className="flex items-center gap-3">
-            <div className="hidden sm:flex flex-col text-right">
-              <span className="text-xs font-bold text-slate-800">{user?.name || 'Administrator'}</span>
-              <span className="text-[10px] text-sky-500 font-bold">Admin Workspace</span>
-            </div>
-            <div className="w-8 h-8 rounded-xl bg-sky-50 flex items-center justify-center text-xs font-black text-sky-600 border border-sky-100 shadow-inner">
-              {user?.name?.slice(0, 1).toUpperCase()}
-            </div>
+          <div className="flex items-center gap-3 relative">
+            <button 
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+              className="flex items-center gap-2 px-3 py-1.5 rounded-xl hover:bg-slate-50 transition-all cursor-pointer border border-transparent hover:border-slate-200 outline-none text-left"
+            >
+              <div className="hidden sm:flex flex-col text-right">
+                <span className="text-xs font-bold text-slate-800">{user?.name || 'Administrator'}</span>
+                <span className="text-[10px] text-sky-500 font-bold">Admin Workspace</span>
+              </div>
+              <div className="w-8 h-8 rounded-xl bg-sky-50 flex items-center justify-center text-xs font-black text-sky-600 border border-sky-100 shadow-inner">
+                {user?.name?.slice(0, 1).toUpperCase() || 'A'}
+              </div>
+              <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+            </button>
+
+            {dropdownOpen && (
+              <>
+                <div className="fixed inset-0 z-40" onClick={() => setDropdownOpen(false)} />
+                <div className="absolute right-0 top-full mt-2 w-56 bg-white border border-slate-100 rounded-2xl shadow-xl py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                  <div className="px-4 py-2 border-b border-slate-50 mb-1">
+                    <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Account Control</p>
+                  </div>
+                  <Link 
+                    to="/wallet" 
+                    onClick={() => setDropdownOpen(false)}
+                    className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold text-slate-700 hover:text-sky-600 hover:bg-slate-50 transition-all"
+                  >
+                    <Wallet className="w-4 h-4 text-slate-400" />
+                    <span>My Wallet</span>
+                  </Link>
+                  <Link 
+                    to="/history" 
+                    onClick={() => setDropdownOpen(false)}
+                    className="flex items-center gap-3 px-4 py-2.5 text-xs font-bold text-slate-700 hover:text-sky-600 hover:bg-slate-50 transition-all"
+                  >
+                    <History className="w-4 h-4 text-slate-400" />
+                    <span>My History</span>
+                  </Link>
+                  <div className="h-px bg-slate-100 my-1.5" />
+                  <button 
+                    onClick={() => { setDropdownOpen(false); handleLogout(); }}
+                    className="w-full flex items-center gap-3 px-4 py-2.5 text-xs font-bold text-red-500 hover:bg-red-50 transition-all text-left cursor-pointer"
+                  >
+                    <LogOut className="w-4 h-4 text-red-400" />
+                    <span>Logout Account</span>
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         </header>
 

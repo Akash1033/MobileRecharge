@@ -1,4 +1,4 @@
-// Help.jsx — MobileRecharge | Help & Support
+// Help.jsx — FastPay | Help & Support
 // Classy, eye-catching UI matching app theme (white/slate/sky-blue)
 // Features: search, category cards, FAQ accordion, contact strip, scroll reveals
 // Stack: React + Tailwind CSS
@@ -84,7 +84,7 @@ const faqs = [
   {
     cat: "cashback",
     q: "How do I earn cashback on recharges?",
-    a: "You earn cashback on every successful recharge automatically. The cashback amount depends on the plan and your user tier. It is credited to your MobileRecharge wallet within 24 hours.",
+    a: "You earn cashback on every successful recharge automatically. The cashback amount depends on the plan and your user tier. It is credited to your FastPay wallet within 24 hours.",
   },
   {
     cat: "cashback",

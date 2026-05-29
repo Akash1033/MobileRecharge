@@ -1,8 +1,9 @@
-// SignUp.jsx — MobileRecharge | Simple & Clean
+// SignUp.jsx — FastPay | Simple & Clean
 // Stack: React + Tailwind CSS
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import logo from "../../assets/logo.png";
 
 const EyeIcon = ({ open }) =>
   open ? (
@@ -103,12 +104,11 @@ export default function SignUp() {
 
         {/* ── Logo ── */}
         <div className="flex items-center justify-center gap-2 mb-8">
-          <div className="w-9 h-9 rounded-xl bg-sky-500 flex items-center justify-center">
-            <span className="text-white font-black text-base">M</span>
-          </div>
-          <span className="text-slate-800 font-extrabold text-xl tracking-tight">
-            Mobile<span className="text-sky-500">Recharge</span>
-          </span>
+          <img 
+            src={logo} 
+            alt="FastPay Logo" 
+            className="h-10 w-auto object-contain"
+          />
         </div>
 
         {/* ── Card ── */}
@@ -252,7 +252,7 @@ export default function SignUp() {
 
         {/* Bottom */}
         <p className="text-center text-slate-400 text-xs mt-6">
-          © {new Date().getFullYear()} MobileRecharge Pvt. Ltd.
+          © {new Date().getFullYear()} FastPay Pvt. Ltd.
         </p>
       </div>
     </div>

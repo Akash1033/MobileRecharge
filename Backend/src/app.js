@@ -22,7 +22,7 @@ app.use(express.json({
 
 // Health check
 app.get('/', (req, res) => {
-  res.json({ message: 'Mobile Recharge API is running' });
+  res.json({ message: 'FastPay API is running' });
 });
 
 // API Routes

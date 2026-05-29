@@ -1,10 +1,11 @@
-// About.jsx — MobileRecharge | Advanced About Section
+// About.jsx — FastPay | Advanced About Section
 // Theme: White/slate/gray + sky blue accent (matches header & footer)
 // Features: scroll animations, counter animation, hover transforms, tab switching, timeline
 // Stack: React + Tailwind CSS
 
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import logo from "../../assets/logo.png";
 
 // ── useCountUp hook ──
 function useCountUp(target, duration = 1800, start = false) {
@@ -57,7 +58,7 @@ const values = [
 ];
 
 const timeline = [
-  { year: "2018", title: "Founded",        desc: "MobileRecharge was born with a mission to make recharging instant for India." },
+  { year: "2018", title: "Founded",        desc: "FastPay was born with a mission to make digital payments instant for India." },
   { year: "2019", title: "1M Users",       desc: "Crossed 1 million users within 12 months of launch." },
   { year: "2021", title: "All Operators",  desc: "Expanded to cover all 50+ telecom operators across India." },
   { year: "2022", title: "Cashback Added", desc: "Launched industry-first guaranteed cashback on every recharge." },
@@ -198,7 +199,7 @@ export default function About() {
             }`}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-sky-500 animate-pulse" />
-            About MobileRecharge
+            About FastPay
           </div>
 
           <h1
@@ -216,7 +217,7 @@ export default function About() {
               heroInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
-            Since 2018, MobileRecharge has been India's most trusted platform for instant mobile, DTH, and broadband recharges — serving 24 million+ satisfied customers across the country.
+            Since 2018, FastPay has been India's most trusted platform for instant mobile, DTH, and broadband recharges — serving 24 million+ satisfied customers across the country.
           </p>
 
           {/* CTA pills */}
@@ -367,7 +368,7 @@ export default function About() {
                   Built to make recharging effortless for every Indian
                 </h2>
                 <p className="text-black text-[15px] leading-relaxed">
-                  MobileRecharge was founded in 2018 with one clear goal — eliminate the frustration of mobile recharges. Long queues, failed transactions, and confusing plan comparisons were holding millions of Indians back from staying connected.
+                  FastPay was founded in 2018 with one clear goal — eliminate the frustration of mobile recharges and digital payments. Long queues, failed transactions, and confusing plan comparisons were holding millions of Indians back from staying connected.
                 </p>
                 <p className="text-black text-[15px] leading-relaxed">
                   Today, we're a team of 200+ passionate engineers, designers, and support specialists building technology that just works — every time. From a student in Pune to a businessman in Delhi, we serve everyone with the same speed and reliability.
@@ -385,11 +386,11 @@ export default function About() {
                 {/* Main card */}
                 <div className="bg-white border border-slate-100 rounded-3xl p-8 shadow-xl shadow-slate-200/50 relative z-10">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-sky-500 rounded-xl flex items-center justify-center text-white font-black text-base">M</div>
-                    <div>
-                      <div className="text-slate-800 font-extrabold text-sm">MobileRecharge</div>
-                      <div className="text-slate-600 text-xs">India's #1 Recharge App</div>
-                    </div>
+                    <img 
+                      src={logo} 
+                      alt="FastPay Logo" 
+                      className="h-10 w-auto object-contain"
+                    />
                   </div>
                   {/* Fake transaction rows */}
                   {[
@@ -488,7 +489,7 @@ export default function About() {
         <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">Ready to recharge smarter?</h2>
           <p className="text-sky-100 text-[15px] mb-8 max-w-xl mx-auto">
-            Join 24 million Indians who trust MobileRecharge for fast, secure, and rewarding recharges every day.
+            Join 24 million Indians who trust FastPay for fast, secure, and rewarding recharges every day.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <a href="#"

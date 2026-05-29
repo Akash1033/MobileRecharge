@@ -15,7 +15,7 @@ export default function History() {
   const downloadInvoice = (record) => {
     const invoiceContent = `
 =================================
-       MOBILE RECHARGE INVOICE    
+       FASTPAY PAYMENT RECEIPT    
 =================================
 
 Transaction ID : ${record.id}
@@ -32,7 +32,7 @@ Payment Method : ${record.payMethod || "N/A"}
 Amount Paid    : ₹${record.amount}
 
 =================================
- Thank you for using our service!
+     Thank you for using FastPay!
 =================================
     `;
     const blob = new Blob([invoiceContent], { type: "text/plain" });

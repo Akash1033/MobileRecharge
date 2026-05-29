@@ -1,8 +1,9 @@
-// Recharge.jsx — MobileRecharge
+// Recharge.jsx — FastPay
 // 4-step flow: Operator → Number → Plan → Payment
 // Stack: React + Tailwind CSS
 
 import { useState, useEffect, useRef } from "react";
+import logo from "../../assets/logo.png";
 import { useWallet } from "../../context/WalletContext";
 import { useHistory } from "../../context/HistoryContext";
 import { useSocket } from "../../context/SocketContext";
@@ -423,7 +424,7 @@ export default function Recharge() {
               key: import.meta.env.VITE_RAZORPAY_KEY || "rzp_test_dummyKeyId",
               amount: order.amount * 100,
             currency: order.currency || "INR",
-            name: "MobileRecharge",
+            name: "FastPay",
             description: `Recharge Payment for +91 ${number}`,
             order_id: order.orderId,
             handler: async function (response) {
@@ -665,8 +666,11 @@ export default function Recharge() {
 
         {/* Logo */}
         <div className="flex items-center justify-center gap-2 mb-8">
-          <div className="w-9 h-9 bg-sky-500 rounded-xl flex items-center justify-center text-white font-black text-base">M</div>
-          <span className="text-xl font-extrabold text-slate-800">Mobile<span className="text-sky-500">Recharge</span></span>
+          <img 
+            src={logo} 
+            alt="FastPay Logo" 
+            className="h-10 w-auto object-contain"
+          />
         </div>
 
         {/* ── Expiry Reminder UI ── */}

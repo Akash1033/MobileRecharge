@@ -69,7 +69,7 @@ export default function Refer() {
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
-        title: 'Join MobileRecharge & Earn!',
+        title: 'Join FastPay & Earn!',
         text: `Use my referral code ${referralCode} to get started and we both earn rewards!`,
         url: window.location.origin,
       }).catch(console.error);
@@ -99,7 +99,7 @@ export default function Refer() {
           <span className="text-xs font-black text-indigo-600 uppercase tracking-widest bg-indigo-50 border border-indigo-100/50 rounded-full px-4 py-1.5 font-display">Loyalty Rewards</span>
           <h1 className="text-4xl sm:text-5xl font-black mb-4 text-slate-900 font-display tracking-tight mt-4">Refer & Earn</h1>
           <p className="text-slate-500 font-semibold leading-relaxed mb-8">
-            Share the convenience of instant mobile recharges. Invite your friends to register and complete their first transaction to earn cash rewards directly into your wallet.
+            Share the convenience of instant digital payments. Invite your friends to register and complete their first transaction to earn cash rewards directly into your wallet.
           </p>
 
           {/* Referral Code UI */}
@@ -163,7 +163,7 @@ export default function Refer() {
               <div>
                 <h3 className="font-extrabold text-slate-800 text-sm sm:text-base font-display">2. Friends Signup & Pay</h3>
                 <p className="text-slate-500 text-xs font-semibold mt-0.5">
-                  Your referred friend signs up and completes any mobile recharge on our platform.
+                  Your referred friend signs up and completes any transaction on our platform.
                 </p>
               </div>
             </div>

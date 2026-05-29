@@ -1,10 +1,11 @@
-// Login.jsx — MobileRecharge | Advanced Login Section
+// Login.jsx — FastPay | Advanced Login Section
 // Features: floating labels, OTP mode, animated bg blobs, shake on error,
 //           show/hide password, remember me, social login, live input validation
 // Stack: React + Tailwind CSS
 
 import { useState, useRef, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import logo from "../../assets/logo.png";
 import { useAuth } from "../../context/AuthContext";
 import { auth } from "../../config/firebase.config";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
@@ -347,7 +348,7 @@ export default function Login() {
       <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-10 text-center max-w-sm w-full">
         <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-5 text-3xl">✅</div>
         <h2 className="text-xl font-bold text-slate-800 mb-2">Welcome back!</h2>
-        <p className="text-slate-600 text-sm mb-7">You're logged in to MobileRecharge.</p>
+        <p className="text-slate-600 text-sm mb-7">You're logged in to FastPay.</p>
         <button onClick={() => navigate("/")}
           className="w-full py-3 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-semibold text-sm transition-all">
           Go to Dashboard →
@@ -382,13 +383,12 @@ export default function Login() {
       <div className="w-full max-w-sm relative z-10">
 
         {/* ── Logo ── */}
-        <div className="flex items-center justify-center gap-2.5 mb-8">
-          <div className="w-9 h-9 rounded-xl bg-sky-500 flex items-center justify-center shadow-sm">
-            <span className="text-white font-black text-base">M</span>
-          </div>
-          <span className="text-slate-800 font-extrabold text-xl tracking-tight">
-            Mobile<span className="text-sky-500">Recharge</span>
-          </span>
+        <div className="flex items-center justify-center gap-2 mb-8">
+          <img 
+            src={logo} 
+            alt="FastPay Logo" 
+            className="h-10 w-auto object-contain"
+          />
         </div>
 
         {/* Card */}
@@ -607,7 +607,7 @@ export default function Login() {
 
         {/* Footer note */}
         <p className="text-center text-slate-400 text-xs mt-6">
-          © {new Date().getFullYear()} MobileRecharge Pvt. Ltd.
+          © {new Date().getFullYear()} FastPay Pvt. Ltd.
         </p>
       </div>
     </div>

@@ -1,8 +1,9 @@
-// Footer.jsx — MobileRecharge App Footer
+// Footer.jsx — FastPay App Footer
 // Color Scheme: Premium dark slate / HSL indigo accents — elegant & accessible
 // Stack: React + Tailwind CSS
 
 import { useState } from "react";
+import logo from "../../assets/logo.png";
 
 // ── Icons ──
 const TwitterIcon = () => (
@@ -48,7 +49,7 @@ const footerLinks = {
     { label: "MTNL", href: "#" },
   ],
   "Services": [
-    { label: "Mobile Recharge", href: "#" },
+    { label: "FastPay", href: "#" },
     { label: "DTH Recharge", href: "#" },
     { label: "Broadband Plans", href: "#" },
     { label: "Electricity Bill", href: "#" },
@@ -147,14 +148,12 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-6">
             
             {/* Unified Logo */}
-            <div className="flex items-center gap-3.5 font-display">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-sky-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-sky-500/20">
-                <span className="text-white font-black text-2xl">M</span>
-              </div>
-              <div className="leading-none flex items-center gap-1.5">
-                <span className="text-white font-black text-xl sm:text-2xl tracking-tight">Mobile</span>
-                <span className="text-sky-500 font-black text-xl sm:text-2xl tracking-tight">Recharge</span>
-              </div>
+            <div className="flex items-center gap-3 font-display">
+              <img 
+                src={logo} 
+                alt="FastPay Logo" 
+                className="h-12 w-auto object-contain hover:scale-[1.03] transition-transform duration-300"
+              />
             </div>
 
             <p className="text-slate-400 text-sm leading-relaxed max-w-sm font-medium">
@@ -273,7 +272,7 @@ export default function Footer() {
         {/* Legals / Copyright bar */}
         <div className="border-t border-slate-900/40">
           <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500 font-semibold">
-            <span>© {new Date().getFullYear()} MobileRecharge Pvt. Ltd. All rights reserved.</span>
+            <span>© {new Date().getFullYear()} FastPay Pvt. Ltd. All rights reserved.</span>
             <div className="flex flex-wrap gap-5 justify-center">
               {["Privacy Policy", "Terms of Service", "Refund Policy", "Cookies"].map((legal) => (
                 <a key={legal} href="#" className="hover:text-sky-400 transition-colors">

@@ -1,9 +1,10 @@
-// Header.jsx — MobileRecharge App Header
+// Header.jsx — FastPay App Header
 // Matches footer color scheme: white bg, slate text, sky-500 accent
 // Responsive: hamburger menu on mobile, full nav on desktop
 // Stack: React + Tailwind CSS
 
 import { useState, useEffect, useRef } from "react";
+import logo from "../../assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import api from "../../utils/api";
@@ -22,8 +23,6 @@ const navLinks = [
   { label: "Home", href: "#", name: "Home", path: "/" },
   { label: "About", href: "#", name: "About", path: "/about" },
   { label: "Recharge", href: "#", highlight: true, name: "Recharge", path: "/recharge" },
-  { label: "Wallet", href: "#", name: "Wallet", path: "/wallet" },
-  { label: "History", href: "#", name: "History", path: "/history" },
   { label: "Contact Us", href: "#", name: "Contact Us", path: "/contactUs" },
   { label: "Help", href: "#", name: "Help", path: "/help" },
 ];
@@ -131,14 +130,12 @@ export default function Header() {
           <div className="flex items-center justify-between h-16 lg:h-17.5">
 
             {/* ── Logo ── */}
-            <Link to="/" className="flex items-center gap-2.5 shrink-0 group">
-              <div className="w-9 h-9 rounded-xl bg-sky-500 flex items-center justify-center shadow-md shadow-sky-500/10 group-hover:scale-105 transition-transform duration-300">
-                <PhoneIcon />
-              </div>
-              <div className="leading-tight font-display">
-                <span className="text-slate-900 font-black text-[20px] tracking-tight">Mobile</span>
-                <span className="text-sky-500 font-black text-[20px] tracking-tight">Recharge</span>
-              </div>
+            <Link to="/" className="flex items-center gap-2 shrink-0 group">
+              <img 
+                src={logo} 
+                alt="FastPay Logo" 
+                className="h-10 w-auto sm:h-11.5 md:h-13.5 object-contain group-hover:scale-[1.03] transition-all duration-300"
+              />
             </Link>
 
             {/* ── Desktop Nav ── */}
@@ -198,7 +195,7 @@ export default function Header() {
                     {/* 1. User Identity Header */}
                     <div className="p-5 bg-slate-50/50 border-b border-slate-200 flex flex-col items-center text-center">
                       {/* Large Initial Avatar */}
-                      <div className="w-13 h-13 rounded-2xl bg-gradient-to-tr from-sky-500 to-indigo-650 flex items-center justify-center text-white text-xl font-black shadow-lg shadow-sky-500/15 mb-3 select-none">
+                      <div className="w-13 h-13 rounded-2xl bg-sky-500 flex items-center justify-center text-white text-xl font-black shadow-lg shadow-sky-500/15 mb-3 select-none">
                         {user?.name ? user.name.charAt(0).toUpperCase() : 'U'}
                       </div>
 
@@ -241,7 +238,7 @@ export default function Header() {
                         className="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-[12.5px] font-bold text-slate-700 hover:text-sky-600 hover:bg-sky-50 transition-all duration-155 group"
                       >
                         <History className="w-4 h-4 text-slate-400 group-hover:text-sky-600 transition-colors" />
-                        <span>Recharge History</span>
+                        <span>History</span>
                       </Link>
 
                       <Link
@@ -250,7 +247,7 @@ export default function Header() {
                         className="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-[12.5px] font-bold text-slate-700 hover:text-sky-600 hover:bg-sky-50 transition-all duration-155 group"
                       >
                         <Wallet className="w-4 h-4 text-slate-400 group-hover:text-sky-600 transition-colors" />
-                        <span>Wallet Balance</span>
+                        <span>Wallet</span>
                       </Link>
 
                       <Link
